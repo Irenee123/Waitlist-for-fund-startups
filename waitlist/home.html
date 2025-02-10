@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fund Startups - Join the Waitlist</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+</head>
+<body>
+    <header>
+        <div class="logo-container">
+            <h1>Join Fund Startups Platform Waitlist, Connecting Startups and Investors!</h1>
+            <p class="subheading">Our AI-powered platform bridges the gap between startups and investors. Sign up now—it's completely free!</p>
+        </div>
+    </header>
+
+    <main>
+        <section class="sales-pitch">
+            <p>
+                <strong>Why Join Fund Startups?</strong><br><br>
+                If you're a <strong>startup</strong>, this is your chance to connect with the world's most forward-thinking investors who are actively looking to fund the next big idea. Our AI-powered matchmaking ensures you find the perfect investor who aligns with your vision, industry, and goals. No more endless networking events or cold emails—let us do the heavy lifting for you.<br><br>
+                If you're an <strong>investor</strong>, Fund Startups is your gateway to discovering high-potential startups before anyone else. Our platform curates the most innovative and scalable ideas, saving you time and effort in finding the next unicorn. With exclusive early access, you'll have the first-mover advantage to invest in groundbreaking projects.<br><br>
+                <strong>Don't miss out!</strong>
+            </p>
+        </section>
+
+        <section class="waitlist-form">
+            <h2>Join the Waitlist</h2>
+            <form id="signup-form" action="submit_form.php" method="post" enctype="multipart/form-data">
+                <div class="form-group">
+                    <label for="full-name">Full Name</label>
+                    <input type="text" id="full-name" name="full-name" placeholder="Enter Founders/Investor's Full Name" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email Address</label>
+                    <input type="email" id="email" name="email" placeholder="Enter your email address" required>
+                </div>
+                <div class="form-group">
+                    <label for="phone">Phone Number</label>
+                    <input type="tel" id="phone" name="phone" placeholder="Enter your phone number" required>
+                </div>
+                <div class="form-group">
+                    <label for="role">Role</label>
+                    <select id="role" name="role" required onchange="toggleStartupName()">
+                        <option value="" disabled selected>Select your role</option>
+                        <option value="startup">Startup</option>
+                        <option value="investor">Investor</option>
+                    </select>
+                </div>
+                <div class="form-group" id="startup-name-group" style="display: none;">
+                    <label for="startup-name">Startup Name</label>
+                    <input type="text" id="startup-name" name="startup-name" placeholder="Enter your startup name">
+                </div>
+                <div class="form-group" id="investor-name-group" style="display: none;">
+                    <label for="investor-name">Investor Name</label>
+                    <input type="text" id="investor-name" name="investor-name" placeholder="Enter your name">
+                </div>
+
+                <div class="form-group">
+                    <label for="industry">Industry</label>
+                    <input type="text" id="industry" name="industry" placeholder="Enter your industry (e.g., technology, healthcare, fintech)" required>
+                </div>
+                <div class="form-group">
+                    <label for="work-history">Tell us about Your Work History</label>
+                    <textarea id="work-history" name="work-history" placeholder="Tell us the year you started, your goals as startup/investor, your achievements." required></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="current-country">Country You Are Currently Located In</label>
+                    <input type="text" id="current-country" name="current-country" placeholder="Type your current country" required>
+                </div>
+                <div class="form-group">
+                    <label for="origin-country">Your Country of Origin</label>
+                    <input type="text" id="origin-country" name="origin-country" placeholder="Type your origin country" required>
+                </div>
+                <div class="form-group">
+                    <label for="age-confirmation">Are You Over 18?</label>
+                    <select id="age-confirmation" name="age-confirmation" required>
+                        <option value="" disabled selected>Are you over 18</option>
+                        <option value="yes">Yes</option>
+                        <option value="no">No</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="id-photo">Upload ID Photo</label>
+                    <input type="file" id="id-photo" name="id-photo" accept="image/*" required>
+                    <small>Enter your ID: JPG, PNG, GIF. Max size: 5MB.</small>
+                </div>
+                <div class="form-group">
+                    <button type="submit" class="cta-button">Submit</button>
+                </div>
+            </form>
+        </section>
+    </main>
+
+    <script src="scripts.js"></script>
+    <script>
+        function toggleStartupName() {
+            const role = document.getElementById('role').value;
+            const startupNameGroup = document.getElementById('startup-name-group');
+            const investorNameGroup = document.getElementById('investor-name-group');
+
+            if (role === 'startup') {
+                startupNameGroup.style.display = 'block';
+                investorNameGroup.style.display = 'none';
+            } else if (role === 'investor') {
+                investorNameGroup.style.display = 'block';
+                startupNameGroup.style.display = 'none';
+            } else {
+                startupNameGroup.style.display = 'none';
+                investorNameGroup.style.display = 'none';
+            }
+        }
+    </script>
+</body>
+</html>
